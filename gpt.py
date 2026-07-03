@@ -17,7 +17,7 @@ dropout = 0.0
 
 torch.manual_seed(1337)
 
-with open('/Users/daniellechoi/Desktop/GPT2 model/input.txt', 'r', encoding='utf-8') as f:
+with open('input.txt', 'r', encoding='utf-8') as f:
     text = f.read()
 
 chars = sorted(list(set(text)))
@@ -183,4 +183,4 @@ for iter in range(max_iters):
 
 context = torch.zeros((1, 1), dtype=torch.long, device=device)
 print(decode(m.generate(context, max_new_tokens=2000)[0].tolist()))
-open('/Users/daniellechoi/Desktop/GPT2 model/more.txt', 'w').write(decode(m.generate(context, max_new_tokens=10000)[0].tolist()))
+open('more.txt', 'w').write(decode(m.generate(context, max_new_tokens=10000)[0].tolist()))
